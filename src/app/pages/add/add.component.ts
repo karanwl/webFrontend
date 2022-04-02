@@ -28,7 +28,7 @@ export class AddComponent implements OnInit {
   onClickSubmit(data: any){
     this.Title = data.Title;
     console.log(data);
-    //this.repository.postSurveys(this.formdata);
+    this.repository.postSurveys(data);
     
   }
 

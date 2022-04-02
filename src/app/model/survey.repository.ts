@@ -17,8 +17,12 @@ export class SurveyRepository {
     return this.surveys;
   }
 
-  postSurveys(survey:Surveys): Observable<Surveys[]>
+  postSurveys(survey:Surveys): void
   {
-    return this.dataSource.postSurveys(survey);
+    this.dataSource.postSurveys(survey);
+  }
+  deleteSurvey(id:any): void
+  {
+    this.dataSource.deleteSurvey(id);
   }
 }

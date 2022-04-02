@@ -14,6 +14,11 @@ export class MainComponent implements OnInit {
   get surveys(): Surveys[] {
     return this.repository.getSurveys();
   }
+
+  deleteSurvey(id:any){
+    console.log(id);
+    return this.repository.deleteSurvey(id);
+  }
   
   ngOnInit(): void {
   }

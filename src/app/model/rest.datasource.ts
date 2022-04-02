@@ -27,7 +27,12 @@ export class RestDataSource {
   getSurveys(): Observable<Surveys[]> {
     return this.http.get<Surveys[]>(this.baseUrl + 'surveys');
   }
-  postSurveys(survey : Surveys): Observable<Surveys[]>{
-    return this.http.post<Surveys[]>(this.baseUrl+'surveys/add',survey);
+  postSurveys(data:any){
+    return this.http.post(this.baseUrl+'surveys/add',data).subscribe(res => {
+    });
+  }
+  deleteSurvey(id:any){
+    return this.http.post(this.baseUrl+'surveys/delete/'+id,id).subscribe(res =>{
+    });
   }
 }

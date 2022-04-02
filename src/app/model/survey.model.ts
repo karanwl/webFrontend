@@ -1,5 +1,6 @@
 export class Surveys {
     constructor(
+        public _id?: string,
         public Title?: string,
         public Date?: string,
         public Description?: string,

@@ -37,8 +37,11 @@
                    Edit</a>
                 </td>
                 <td class="text-center">
-                  <a href="/" class="bt btn-danger btn-sm">
-                   Delete</a>
+                  <a href="/">
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey._id)">Delete</button>
+                  </a>
+                  <!-- <a href="/" class="bt btn-danger btn-sm">
+                   Delete</a> -->
                 </td>
               </tr>
             </tbody>

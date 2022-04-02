@@ -1,0 +1,32 @@
+<main>
+    
+    <div class="col-md-3 offset-md-2">
+        <h1 class="auth_error_message"></h1>
+        <br>
+        <h2>New user registration : </h2>
+        <div class="container">
+            <form method="POST" action="/register">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="emailHelp"
+                        placeholder="Enter password" name="password">
+                </div>
+                
+                <fieldset class="form-group">
+                    <label for="displayName">Display Name: </label>
+                    <input type="displayName" class="form-control"
+                    name="displayName"
+                    placeholder="Enter Display Name"
+                    id="displayName" required>
+                </fieldset>
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/" >
+                    <input type="button" class="btn btn-warning" value="cancel">
+                </a>
+            </form>
+        </div>
+    </div>
+</main>

@@ -20,9 +20,9 @@ export class AuthService
         return this.datasource.authenticate(user);
     }
 
-    storeUserData(token: any, user: User): string
+    storeUserData(token: any, user: User): void
     {
-        return this.datasource.storeUserData(token, user);
+         this.datasource.storeUserData(token, user);
     }
 
     get authenticated(): boolean

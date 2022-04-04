@@ -53,6 +53,7 @@ export class RestDataSource {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
+    
   }
 
   logout(): Observable<any>

@@ -4,7 +4,30 @@
       <a class="navbar-brand" href="/"> Web22 Survey App</a>
     </div>
     <div class="navbar-nav ms-auto">
-        <a class="navbar-brand" href="/"><i class="fa fa-home fa-lg"></i> Home</a>
-        <a class="navbar-brand" href="/surveys"><i class="fa fa-bar-chart fa-lg"></i> Survey List</a>
+        <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+          <a class="navbar-brand" routerLink="/"><i class="fa fa-home fa-lg"></i> Home</a>
+        </li>
+
+        <li class="nav-item"[routerLinkActive]="['active']">
+        <a class="navbar-brand" routerLink="/surveys"><i class="fa fa-bar-chart fa-lg"></i> Survey List</a>
+        </li>
+
+        <li *ngIf='isLoggedIn()' class="nav-item ml-5" [routerLinkActive]="['active']">
+          <a class="nav-link text-warning" routerLink="/admin/main"><i class="fas fa-lg fa-user-shield">Admin</i></a>
+        </li>
+
+        <li *ngIf='isLoggedIn()' 
+        class="navbar-text text-success ml-5 d-none d-lg-inline">
+            <i class="fas fa-lg fa-user">Welcome, {{ user.displayName }}</i>
+        </li>
+
+        <li *ngIf='isLoggedIn()' class="nav-item">
+          <a (click)='onLogoutClick()' routerLink='/logout' class="nav-link" href="/login">
+            <i class="fas fa-lg fa-sign-out-alt">Logout</i></a>
+        </li>
+
+        <li *ngIf='isLoggedIn()' class="nav-item">
+          <a class="nav-link" routerLink="/login"><i class="fas fa-lg fa-sign-in-alt">Login</i></a>
+        </li>
     </div>
 </nav>

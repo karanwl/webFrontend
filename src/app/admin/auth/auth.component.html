@@ -10,7 +10,7 @@
             {{errorMessage}}
             </div>
             <h1>Please Login</h1>
-            <form autocomplete='off' #form='ngForm' (ngSubmit)='authenticate(form)' >
+            <form autocomplete='off' #form=ngForm (ngSubmit)='authenticate(form)' >
 
             <fieldset class="form-group">
                 <label for="username">Username:</label>
@@ -26,7 +26,10 @@
                 [(ngModel)]='user.password'
                 name ='password' placeholder='Enter Password'
                 id='password' required autocomplete='off'>
-            </fieldset>
+                or
+
+            <a href="/register">Register Here</a>
+                </fieldset>
 
             <fieldset class="form-group text-right">
                 <button class='btn-btn-primary m-1' type='submit'>

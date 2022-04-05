@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/model/auth.service';
+import { AuthService } from '../../model/auth.service';
 
 import { User } from '../../model/user.model';
 
@@ -28,9 +28,12 @@ export class AuthComponent implements OnInit
     {
       //perform authentication
       this.auth.authenticate(this.user).subscribe(data => {
+        console.log('>>>DEBUG')
+        console.log(data)
         if(data.success)
         {
           this.auth.storeUserData(data.token, data.user);
+          console.log('>>>logged in')
           this.router.navigateByUrl('admin/main');
         }
       });
@@ -38,6 +41,7 @@ export class AuthComponent implements OnInit
     }
     else
     {
+      console.log('>>>not logged in')
       this.errorMessage = 'Form Data Invalid';
     }
   }

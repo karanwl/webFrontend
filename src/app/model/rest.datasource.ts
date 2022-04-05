@@ -36,15 +36,20 @@ export class RestDataSource {
     return this.http.get<Surveys[]>(this.baseUrl + 'surveys');
   }
 
-  postSurveys(data:any)
+  postSurveys(survey:Surveys)
   {
-    return this.http.post(this.baseUrl+'surveys/add',data).subscribe(res => {
+    return this.http.post(this.baseUrl + 'surveys/add', survey).subscribe(res => {
     });
   }
 
   authenticate(user: User): Observable<any>
   {
     return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
+  }
+
+  register(user: User): Observable<any>
+  {
+    return this.http.post<User>(this.baseUrl + 'register', user, this.httpOptions);
   }
 
   storeUserData(token: any, user: User): void

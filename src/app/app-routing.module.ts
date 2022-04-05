@@ -9,7 +9,7 @@ import { SurveysComponent } from './pages/surveys/surveys.component';
 const routes: Routes = [
   {path: 'home', component: HomeComponent, data: {title: 'Home'}},
   {path: 'login', data: {title: 'Login'}, redirectTo: 'admin/auth', pathMatch: 'full'},
-  {path: 'register', component: RegisterComponent, data: {title: 'Register'}},
+  {path: 'register', component: RegisterComponent, data: {title: 'register'}},
 
   {path: 'surveys', component: SurveysComponent, data: {title: 'surveys'}},
   {path: 'surveys/add', component: AddComponent, data: {title: 'surveys/add'}}  ,

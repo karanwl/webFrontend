@@ -22,7 +22,7 @@ export class AuthService
 
     storeUserData(token: any, user: User): void
     {
-         this.datasource.storeUserData(token, user);
+        this.datasource.storeUserData(token, user);
     }
 
     get authenticated(): boolean

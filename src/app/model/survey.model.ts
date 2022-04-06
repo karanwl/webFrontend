@@ -2,6 +2,7 @@ export class Surveys {
     constructor(
         public _id?: string,
         public Title?: string,
+        public User?: string,
         public Date?: string,
         public Description?: string,
         public Question_1?: string,
@@ -17,6 +18,7 @@ export class Surveys {
         return `Survey
         -----------------------
         Title       : ${this.Title}
+        User        : ${this.User}
         Date        : ${this.Date}
         Description : ${this.Description}
         Question_1  : ${this.Question_1}

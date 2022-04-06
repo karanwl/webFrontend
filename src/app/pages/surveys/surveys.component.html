@@ -10,6 +10,7 @@
               <tr>
                 <th>Title</th>
                 <th class="text-center">Date</th>
+                <th class="text-center">User</th>
                 <th class="text-center">Description</th>
                 <th class="text-center"></th>
                 <th class="text-center"></th>
@@ -19,6 +20,7 @@
                 <tr *ngFor="let survey of surveys">
                     <td>{{survey.Title}}</td>
                     <td class="text-center">{{survey.Date}}</td>
+                    <td class="text-center">{{survey.User}}</td>
                     <td class="text-center">{{survey.Description}}</td>
                 
                     <td class="text-center">

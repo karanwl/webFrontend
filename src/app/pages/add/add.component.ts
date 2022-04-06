@@ -17,6 +17,7 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.formdata = new FormGroup({
         Title: new FormControl(),
+        User : new FormControl(),
         Date: new FormControl(),
         Description: new FormControl(),
         Question_1: new FormControl(),

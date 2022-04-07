@@ -42,6 +42,12 @@ export class RestDataSource {
     });
   }
 
+  /*getUsers(): User 
+  {
+    return this.http.get<User>(this.baseUrl + 'users');
+  }*/
+
+
   authenticate(user: User): Observable<any>
   {
     return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
@@ -75,7 +81,8 @@ export class RestDataSource {
     return !this.jwtService.isTokenExpired(this.authToken);
   }
 
-  deleteSurvey(id:any){
+  deleteSurvey(id:any)
+  {
     return this.http.post(this.baseUrl+'surveys/delete/'+id,id).subscribe(res =>{
     });
   }

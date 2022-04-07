@@ -8,43 +8,32 @@
           <table class="table table-bordered table-striped table-hover">
             <thead>
                 <tr>
-                    <th>Title</th>
-                    <th class="text-center">Date</th>
                     <th class="text-center">User</th>
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Date</th>
                     <th class="text-center">Description</th>
                     <th class="text-center">Question_1</th>
-                    <th class="text-center">Answer_1</th>
+                    <th *ngIf='isLoggedIn()' class="text-center">Answer_1</th>
                     <th class="text-center">Question_2</th>
-                    <th class="text-center">Answer_2</th>
+                    <th *ngIf='isLoggedIn()' class="text-center">Answer_2</th>
                     <th class="text-center">Question_3</th>
-                    <th class="text-center">Answer_3</th>
-                    <th class="text-center"></th>
-                    <th class="text-center"></th>
+                    <th *ngIf='isLoggedIn()' class="text-center">Answer_3</th>
+                    
                 </tr>
             </thead>
             <tbody>
               <tr *ngFor="let survey of surveys">
+                <td class="text-center">{{survey.User}}</td>
                 <td class="text-center">{{survey.Title}}</td>
                 <td class="text-center">{{survey.Date}}</td>
-                <td class="text-center">{{survey.User}}</td>
                 <td class="text-center">{{survey.Description}}</td>
                 <td class="text-center">{{survey.Question_1}}</td>
-                <td class="text-center">--</td>
+                <td *ngIf='isLoggedIn()' class="text-center">{{survey.Answer_1}}</td>
                 <td class="text-center">{{survey.Question_2}}</td>
-                <td class="text-center">--</td>
+                <td *ngIf='isLoggedIn()' class="text-center">{{survey.Answer_2}}</td>
                 <td class="text-center">{{survey.Question_3}}</td>
-                <td class="text-center">--</td>
-                <td class="text-center">
-                 <!-- <a href="/surveys/add" class="bt btn-primary btn-sm">
-                   Edit</a>
-                </td>
-                <td class="text-center">
-                  <a href="/">
-                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey._id)">Delete</button>
-                  </a>
-                   <a href="/" class="bt btn-danger btn-sm">
-                   Delete</a> -->
-                </td>
+                <td *ngIf='isLoggedIn()' class="text-center">{{survey.Answer_3}}</td>
+                
               </tr>
             </tbody>
           </table>

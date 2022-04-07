@@ -1,4 +1,5 @@
-export class Surveys {
+export class Surveys 
+{
     constructor(
         public _id?: string,
         public Title?: string,

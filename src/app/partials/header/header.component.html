@@ -12,13 +12,14 @@
         <a class="navbar-brand" routerLink="/surveys"><i class="fa fa-bar-chart fa-lg"></i> Survey List</a>
         </li>
 
+        
         <li *ngIf='isLoggedIn()' class="nav-item ml-5" [routerLinkActive]="['active']">
           <a class="nav-link text-warning" routerLink="/admin/main"><i class="fas fa-lg fa-user-shield">Admin</i></a>
         </li>
 
         <li *ngIf='isLoggedIn()' 
         class="navbar-text text-success ml-5 d-none d-lg-inline">
-            <i class="fas fa-lg fa-user">Welcome, {{ user.displayName }}</i>
+            <i class="fas fa-lg fa-user">Welcome, {{ user.displayName }}, {{ user.username }}</i>
         </li>
 
         <li *ngIf='isLoggedIn()' class="nav-item">

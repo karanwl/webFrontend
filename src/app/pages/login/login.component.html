@@ -3,28 +3,31 @@
     <div class="row">
         <div class="offset-md-2 col-md-4">
             <h1>Please Login</h1>
-            <form action="" method="POST" autocomplete="off">
+            <form action="" method="POST" autocomplete="off" #form='ngForm' (ngSubmit)='authenticate(form)'>
                 <fieldset class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" class="form-control"
-                    name="username" placeholder="Enter username"
-                    id="username" required autofocus>
-                </fieldset>
+                    [(ngModel)]='user.username'
+                    name='username' placeholder='Enter Username'
+                    id='username' required autofocus autocomplete='off'>
+                  </fieldset>
 
                 <fieldset class="form-group">
                     <label for="password">Password:</label>
                     <input type="password" class="form-control"
-                    name="password" placeholder="Enter password"
-                    id="password" required >
+                    [(ngModel)]='user.password'
+                    name='password' placeholder='Enter Password'
+                    id='password' required autocomplete='off'>
                     or
                     <a href="/register">Register Here</a>
-                </fieldset>
+                  </fieldset>
                 
                 <fieldset class="form-group text-right">
                     <input type="submit" class="btn btn-success" value="Login">
-                    <a href="/" >
-                    <input type="button" class="btn btn-warning" value="cancel">
-                    </a>
+                    <button class='btn btn-secondary m-1' routerLink='/home'>
+                        <i class="fas fa-undo"></i>
+                        Cancel
+                      </button>
                 </fieldset>
 
             </form>

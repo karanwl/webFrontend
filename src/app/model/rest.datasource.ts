@@ -50,7 +50,10 @@ export class RestDataSource {
 
   authenticate(user: User): Observable<any>
   {
-    return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
+    return this.http.post<any>(this.baseUrl + 'users/signin', {
+      "username":user.username,
+      "password":user.password
+  }, this.httpOptions);
   }
 
   register(user: User): Observable<any>

@@ -8,6 +8,7 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { AddComponent } from './pages/add/add.component';
 import { SurveyModule } from './pages/surveys/surveys.module';
 import { HomeModule } from './pages/home/home.module';
+import { LoginModule } from './pages/login/login.module';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
@@ -24,14 +25,14 @@ export function jwtTokenGetter()
     FooterComponent,
     AddComponent,
     RegisterComponent,
-    LoginComponent,
-
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     SurveyModule,
     HomeModule,
+    LoginModule,
     ReactiveFormsModule,
 
     JwtModule.forRoot({

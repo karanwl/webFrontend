@@ -33,6 +33,18 @@
                 <td *ngIf='isLoggedIn()' class="text-center">{{survey.Answer_2}}</td>
                 <td class="text-center">{{survey.Question_3}}</td>
                 <td *ngIf='isLoggedIn()' class="text-center">{{survey.Answer_3}}</td>
+
+                <td class="text-center">
+                  <a href="/surveys/add" class="bt btn-primary btn-sm">
+                   Edit</a>
+                </td>
+                <td class="text-center">
+                  <a href="/">
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey._id)">Delete</button>
+                  </a>
+                  <!-- <a href="/" class="bt btn-danger btn-sm">
+                   Delete</a> -->
+                </td>
                 
               </tr>
             </tbody>

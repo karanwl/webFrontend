@@ -52,7 +52,6 @@ export class RestDataSource {
 
   authenticate(user: User): Observable<any>
   {
-    this.loadToken();
     return this.http.post<any>(this.baseUrl + 'users/signin', {
       "username":user.username,
       "password":user.password
@@ -61,7 +60,6 @@ export class RestDataSource {
 
   register(user: User): Observable<any>
   {
-    this.loadToken();
     return this.http.post<User>(this.baseUrl + 'register', user, this.httpOptions);
   }
 

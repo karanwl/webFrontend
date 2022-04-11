@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-add',
@@ -12,7 +13,8 @@ export class AddComponent implements OnInit {
   formdata: any = {}
   Title: any;
 
-  constructor(private repository: SurveyRepository) { }
+  constructor(private repository: SurveyRepository,
+    private router: Router) { }
   //formdata!: FormGroup;
   ngOnInit() {
     this.formdata = new FormGroup({
@@ -28,8 +30,9 @@ export class AddComponent implements OnInit {
 
   onClickSubmit(data: any){
     this.Title = data.Title;
-    console.log(data);
+   
     this.repository.postSurveys(data);
+    this.router.navigateByUrl('/home');
     
   }
 

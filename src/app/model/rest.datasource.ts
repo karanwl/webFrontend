@@ -33,11 +33,13 @@ export class RestDataSource {
 
   getSurveys(): Observable<Surveys[]> 
   {
+    this.loadToken();
     return this.http.get<Surveys[]>(this.baseUrl + 'surveys');
   }
 
   postSurveys(survey:Surveys)
   {
+    this.loadToken();
     return this.http.post(this.baseUrl + 'surveys/add', survey).subscribe(res => {
     });
   }
@@ -50,6 +52,7 @@ export class RestDataSource {
 
   authenticate(user: User): Observable<any>
   {
+    this.loadToken();
     return this.http.post<any>(this.baseUrl + 'users/signin', {
       "username":user.username,
       "password":user.password
@@ -58,6 +61,7 @@ export class RestDataSource {
 
   register(user: User): Observable<any>
   {
+    this.loadToken();
     return this.http.post<User>(this.baseUrl + 'register', user, this.httpOptions);
   }
 
@@ -72,6 +76,8 @@ export class RestDataSource {
 
   logout(): Observable<any>
   {
+
+    this.loadToken();
     this.authToken = null as any;
     this.user = null as any;
     localStorage.clear();
@@ -86,6 +92,7 @@ export class RestDataSource {
 
   deleteSurvey(id:any)
   {
+    this.loadToken();
     return this.http.post(this.baseUrl+'surveys/delete/'+id,id).subscribe(res =>{
     });
   }

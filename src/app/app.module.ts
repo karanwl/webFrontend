@@ -12,6 +12,7 @@ import { LoginModule } from './pages/login/login.module';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+import { EditComponent } from './pages/edit/edit.component';
 
 export function jwtTokenGetter() 
 {
@@ -25,6 +26,7 @@ export function jwtTokenGetter()
     FooterComponent,
     AddComponent,
     RegisterComponent,
+    EditComponent,
    
   ],
   imports: [

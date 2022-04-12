@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/model/auth.service';
 import { User } from 'src/app/model/user.model';
+import { UserRepository } from 'src/app/model/user.repository';
 
 @Component({
   selector: 'app-header',
@@ -11,12 +12,20 @@ import { User } from 'src/app/model/user.model';
 export class HeaderComponent implements OnInit {
   user!: User;
   constructor(private authService: AuthService,
-    private router: Router)   {}
-
+              private repository: UserRepository,
+              private router: Router)   {}
+              
+  get users(): User[] 
+  {  
+    return this.repository.getUsers();
+  }
   ngOnInit(): void 
   {
     this.user = new User();
+    
   }
+
+  
 
   onLogoutClick(): void
   {

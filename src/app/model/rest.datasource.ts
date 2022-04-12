@@ -5,6 +5,7 @@ import { Surveys } from './survey.model';
 import { User } from './user.model';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 const PROTOCOL = 'http';
 const PORT = 3500;
@@ -24,7 +25,8 @@ export class RestDataSource {
     })
   };
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
+              private router: Router, 
               private jwtService: JwtHelperService) 
   {
     this.user = new User();
@@ -45,10 +47,10 @@ export class RestDataSource {
     });
   }
 
-  /*getUsers(): User 
+  getUsers(): Observable<User[]> 
   {
-    return this.http.get<User>(this.baseUrl + 'users');
-  }*/
+    return this.http.get<any>(this.baseUrl + 'user');
+  }
 
   saveUser(user: User): Observable<User>
   {
@@ -92,6 +94,12 @@ export class RestDataSource {
   loggedIn(): boolean
   {
     return !this.jwtService.isTokenExpired(this.authToken);
+  }
+
+  editSurvey(id:any)
+  {
+    this.loadToken();
+    this.router.navigate(['/surveys/edit', id])
   }
 
   deleteSurvey(id:any)

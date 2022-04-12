@@ -17,7 +17,7 @@ export class AdminComponent
                 private datasource: RestDataSource) {}
 
     
-    /*get users(): User []
+    /*get users(): User
     {
         return this.datasource.getUsers();
     }*/

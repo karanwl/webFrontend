@@ -16,6 +16,7 @@ export class AddComponent implements OnInit {
   constructor(private repository: SurveyRepository,
               private router: Router) { }
   //formdata!: FormGroup;
+  displayName = "";
   ngOnInit() {
     this.formdata = new FormGroup({
         Title: new FormControl(),
@@ -26,6 +27,8 @@ export class AddComponent implements OnInit {
         Question_2: new FormControl(),
         Question_3: new FormControl()
       });
+
+     
   }
 
   onClickSubmit(data: any){

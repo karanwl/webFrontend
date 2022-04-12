@@ -4,6 +4,7 @@ import { AuthService } from "src/app/model/auth.service";
 import { RestDataSource } from "src/app/model/rest.datasource";
 import { User } from "src/app/model/user.model";
 import { NgForm } from '@angular/forms';
+import{ GlobalComponent } from 'src/app/global-component';
 
 @Component({
   selector: 'app-login',
@@ -28,14 +29,13 @@ export class LoginComponent implements OnInit {
   authenticate(form: NgForm): void
   {
 
-    alert("Login Clicked");
-
     if (form.valid)
     {
       // perform authentication
       this.auth.authenticate(this.user).subscribe(data => {
         if (data.success)
         {
+          GlobalComponent.displayName = data.user.displayName;
           this.auth.storeUserData(data.token, data.user);
           this.router.navigateByUrl('/home');
         }

@@ -31,9 +31,11 @@
                 <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Question_2}}</td>
                 <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Question_3}}</td>
 
-                <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">
-                  <a href="/surveys/add" class="bt btn-primary btn-sm">
-                   Edit</a>
+                <td class="text-center">
+                  <a >
+                    <button type="button" class="bt btn-primary btn-sm" (click)="editSurvey(survey._id)">
+                   Edit</button>
+                  </a>
                 </td>
                 <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">
                   <a href="/">

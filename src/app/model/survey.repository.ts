@@ -26,4 +26,19 @@ export class SurveyRepository {
   {
     this.dataSource.deleteSurvey(id);
   }
+ 
+  editSurveys(id: any)
+  {
+    this.dataSource.editSurvey(id);
+  }
+  /*{
+    const surveyIndex = this.surveys.findIndex(x => x._id == survey._id);
+    if (surveyIndex != null && surveyIndex != undefined) 
+    {
+        this.surveys[surveyIndex] = survey;
+    }
+  }*/
+  getSurveysByID(_id: any) {
+    return this.surveys.find(x => x._id == _id)
+}
 }

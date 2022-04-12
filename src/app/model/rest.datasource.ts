@@ -40,6 +40,7 @@ export class RestDataSource {
   postSurveys(survey:Surveys)
   {
     this.loadToken();
+    
     return this.http.post(this.baseUrl + 'surveys/add', survey).subscribe(res => {
     });
   }
@@ -48,6 +49,11 @@ export class RestDataSource {
   {
     return this.http.get<User>(this.baseUrl + 'users');
   }*/
+
+  saveUser(user: User): Observable<User>
+  {
+    return this.http.post<User>(this.baseUrl + 'users/signup', user, this.httpOptions)
+  }
 
 
   authenticate(user: User): Observable<any>

@@ -52,6 +52,7 @@ export class RestDataSource {
 
   saveUser(user: User): Observable<User>
   {
+    this.authenticate(user);
     return this.http.post<User>(this.baseUrl + 'users/signup', user, this.httpOptions)
   }
 
@@ -75,7 +76,6 @@ export class RestDataSource {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
-    
   }
 
   logout(): Observable<any>

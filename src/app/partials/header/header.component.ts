@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/model/auth.service';
 import { User } from 'src/app/model/user.model';
+import{ GlobalComponent } from 'src/app/global-component';
 
 @Component({
   selector: 'app-header',
@@ -10,12 +11,16 @@ import { User } from 'src/app/model/user.model';
 })
 export class HeaderComponent implements OnInit {
   user!: User;
+  displayName = GlobalComponent.displayName;
+ 
   constructor(private authService: AuthService,
-    private router: Router)   {}
+    private router: Router)   {
+    }
 
   ngOnInit(): void 
   {
     this.user = new User();
+    
   }
 
   onLogoutClick(): void

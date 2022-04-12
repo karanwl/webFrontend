@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-offset-1 col-md-10">
+        <br>
+        <h3>Survey Result</h3>
+        <br>
+        <br>
+        <div class="table-responsive survey_table">
+          <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+              
+                    <th class="text-center">Title</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-center">Description</th>
+                    <th class="text-center">Question</th> 
+                    <th class="text-center">Answer</th> 
+                    <th class="text-center">Question</th>
+                    <th class="text-center">Answer</th>
+                    <th class="text-center">Question</th>
+                    <th class="text-center">Answer</th>    
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let survey of surveys">
+                <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Title}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Question_1}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Answer_1}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Question_2}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Answer_2}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Question_3}}</td>
+                <td *ngIf='isLoggedIn() &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Answer_3}}</td>                
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>

@@ -13,6 +13,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
 import { EditComponent } from './pages/edit/edit.component';
+import { ViewSurveyResultModule } from './pages/view-survey-result/view-survey-result.module';
 
 export function jwtTokenGetter() 
 {
@@ -27,7 +28,6 @@ export function jwtTokenGetter()
     AddComponent,
     RegisterComponent,
     EditComponent,
-   
   ],
   imports: [
     BrowserModule,
@@ -37,6 +37,7 @@ export function jwtTokenGetter()
     LoginModule,
     ReactiveFormsModule,
     FormsModule,
+    ViewSurveyResultModule,
 
     JwtModule.forRoot({
       config: {

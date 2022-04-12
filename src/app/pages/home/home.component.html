@@ -15,9 +15,7 @@
                     <th class="text-center">Description</th>
                     <th class="text-center">Question_1</th> 
                     <th class="text-center">Question_2</th>
-                    <th class="text-center">Question_3</th>
-                   
-                    
+                    <th class="text-center">Question_3</th>    
                 </tr>
             </thead>
             <tbody>
@@ -38,6 +36,12 @@
                 <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">
                   <a href="/">
                     <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey._id)">Delete</button>
+                  </a>
+                </td>
+
+                <td *ngIf='isLoggedIn() &&survey.User==displayName && survey.Answer_1==undefined' class="text-center">
+                  <a href="/survey/result?id={{survey.Title}}">
+                    <button type="button" class="btn btn-primary btn-sm" routerLink="/survey/result?id=survey._id">View Results</button>
                   </a>
                 </td>
                 

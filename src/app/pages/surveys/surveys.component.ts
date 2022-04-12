@@ -12,11 +12,16 @@ import { RestDataSource } from "src/app/model/rest.datasource";
 })
 export class SurveysComponent implements OnInit {
   user!: User;
+  displayName:String;
   constructor(private repository: SurveyRepository,
               private authService: AuthService,
               private datasource: RestDataSource) { }
 
   get surveys(): Surveys[] {
+   
+    if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
+      this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+    }
     return this.repository.getSurveys();
   }
   

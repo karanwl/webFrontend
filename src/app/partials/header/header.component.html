@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white" role="navigation">
     <div class="navbar-header" id="nav">
-      <a class="navbar-brand" href="/"><img if="logo" src="../../../assets/logo.jpg" alt="logo" width="100" height="40" ></a>
+      <a class="navbar-brand" href="/"><img if="logo" src="../../../assets/l.jpg" alt="logo" width="100" height="40" ></a>
       <a class="navbar-brand" href="/"> Web22 Survey App</a>
     </div>
     <div class="navbar-nav ms-auto">
@@ -12,14 +12,13 @@
         <a class="navbar-brand" routerLink="/surveys"><i class="fa fa-bar-chart fa-lg"></i> Survey List</a>
         </li>
 
-        
-        <li *ngIf='isLoggedIn()' class="nav-item ml-5" [routerLinkActive]="['active']">
-          <a class="nav-link text-warning" routerLink="/admin/main"><i class="fas fa-lg fa-user-shield">Admin</i></a>
-        </li>
-
         <li *ngIf='isLoggedIn()' 
         class="navbar-text text-success ml-5 d-none d-lg-inline">
-            <i class="fas fa-lg fa-user">Welcome, {{ user.displayName }}, {{ user.username }}</i>
+<<<<<<< HEAD
+            <i class="fas fa-lg fa-user">Welcome, {{ user.displayName }}</i>
+=======
+            <i class="fas fa-lg fa-user">Welcome,{{displayName }}</i>
+>>>>>>> a26068898786430480c23f390c0ae7eec733b63d
         </li>
 
         <li *ngIf='isLoggedIn()' class="nav-item">

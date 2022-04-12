@@ -5,6 +5,7 @@ import { Surveys } from './survey.model';
 import { User } from './user.model';
 import { map } from 'rxjs/operators';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 const PROTOCOL = 'http';
 const PORT = 3500;
@@ -24,7 +25,8 @@ export class RestDataSource {
     })
   };
 
-  constructor(private http: HttpClient, 
+  constructor(private http: HttpClient,
+              private router: Router, 
               private jwtService: JwtHelperService) 
   {
     this.user = new User();
@@ -33,24 +35,36 @@ export class RestDataSource {
 
   getSurveys(): Observable<Surveys[]> 
   {
+    this.loadToken();
     return this.http.get<Surveys[]>(this.baseUrl + 'surveys');
   }
 
   postSurveys(survey:Surveys)
   {
+    this.loadToken();
+    
     return this.http.post(this.baseUrl + 'surveys/add', survey).subscribe(res => {
     });
   }
 
-  /*getUsers(): User 
+  getUsers(): Observable<User[]> 
   {
-    return this.http.get<User>(this.baseUrl + 'users');
-  }*/
+    return this.http.get<any>(this.baseUrl + 'user');
+  }
+
+  saveUser(user: User): Observable<User>
+  {
+    this.authenticate(user);
+    return this.http.post<User>(this.baseUrl + 'users/signup', user, this.httpOptions)
+  }
 
 
   authenticate(user: User): Observable<any>
   {
-    return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
+    return this.http.post<any>(this.baseUrl + 'users/signin', {
+      "username":user.username,
+      "password":user.password
+  }, this.httpOptions);
   }
 
   register(user: User): Observable<any>
@@ -64,11 +78,12 @@ export class RestDataSource {
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
-    
   }
 
   logout(): Observable<any>
   {
+
+    this.loadToken();
     this.authToken = null as any;
     this.user = null as any;
     localStorage.clear();
@@ -81,8 +96,15 @@ export class RestDataSource {
     return !this.jwtService.isTokenExpired(this.authToken);
   }
 
+  editSurvey(id:any)
+  {
+    this.loadToken();
+    this.router.navigate(['/surveys/edit', id])
+  }
+
   deleteSurvey(id:any)
   {
+    this.loadToken();
     return this.http.post(this.baseUrl+'surveys/delete/'+id,id).subscribe(res =>{
     });
   }

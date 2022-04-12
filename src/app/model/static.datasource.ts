@@ -1,6 +1,7 @@
 import { Surveys } from './survey.model';
 import { Injectable } from '@angular/core';
 import { Observable, from } from 'rxjs';
+import { User } from './user.model';
 
 @Injectable()
 export class StaticDataSource {
@@ -12,5 +13,11 @@ export class StaticDataSource {
   
   getSurveys(): Observable<Surveys[]> {
     return from([this.surveys]);
+  }
+
+  saveUser(user: User): Observable<User>
+  {
+    console.log(JSON.stringify(user))
+    return from ([user]);
   }
 }

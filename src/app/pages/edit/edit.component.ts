@@ -1,23 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { SurveyRepository } from 'src/app/model/survey.repository';
 import { FormGroup, FormControl } from '@angular/forms';
-import { Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
+import { Surveys } from 'src/app/model/survey.model';
+import { SurveyRepository } from 'src/app/model/survey.repository';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.css']
 })
-export class AddComponent implements OnInit {
-  //formdata!: FormGroup;
+export class EditComponent implements OnInit {
   formdata: any = {}
   Title: any;
+  _id: any;
+  survey: Surveys[]
 
   constructor(private repository: SurveyRepository,
-              private router: Router) { }
+              private router: Router,
+              private route: ActivatedRoute) { }
+     
+  get surveys(): Surveys[] {
+    return this.repository.getSurveys();
+  }
+  
   //formdata!: FormGroup;
-  displayName = "";
   ngOnInit() {
+    this._id = this.route.snapshot.params['id'];
+    console.log(this._id)
+    
     this.formdata = new FormGroup({
         Title: new FormControl(),
         User : new FormControl(),
@@ -27,8 +37,11 @@ export class AddComponent implements OnInit {
         Question_2: new FormControl(),
         Question_3: new FormControl()
       });
-
-     
+  }
+  
+  getSurveyByID(id: any)
+  {
+    return this.survey.find(x => x._id === id);
   }
 
   onClickSubmit(data: any){
@@ -38,5 +51,4 @@ export class AddComponent implements OnInit {
     this.router.navigateByUrl('/home');
     
   }
-
 }

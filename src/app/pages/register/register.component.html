@@ -18,7 +18,7 @@
                     <label>Username</label>
                     <input class="form-control" #username='ngModel' name='username'
                     [(ngModel)]='user.username' required>
-                    <span *ngIf = 'registered && username.invalid' class='text-danger'>
+                    <span *ngIf = 'registered && username.invalid' class='alert-danger'>
                         Please Enter Username
                     </span>
                 </div>
@@ -27,7 +27,7 @@
                     <label>Password</label>
                     <input class="form-control" type="password" #password='ngModel' name='password'
                     [(ngModel)]='user.password' required>
-                    <span *ngIf = 'registered && password.invalid' class='text-danger'>
+                    <span *ngIf = 'registered && password.invalid' class='alert-danger'>
                         Please Enter Password
                     </span>
                 </div>
@@ -36,7 +36,7 @@
                     <label>Display Name</label>
                     <input class="form-control" #displayName='ngModel' name='displayName'
                     [(ngModel)]='user.displayName' required>
-                    <span *ngIf = 'registered && displayName.invalid' class='text-danger'>
+                    <span *ngIf = 'registered && displayName.invalid' class='alert-danger'>
                         Please Enter Display Name
                     </span>
                 </div>

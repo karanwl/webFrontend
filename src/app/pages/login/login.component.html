@@ -3,21 +3,25 @@
     <div class="row" style="padding-top: 7%;padding-left: 14%;"> 
         <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 4%;padding-top: 1%;padding-left: 5%;padding-right: 5%;">
             <h1>Please Login</h1>
+            
             <form action="" method="POST" autocomplete="off" #form='ngForm' (ngSubmit)='authenticate(form)'>
                 <fieldset class="form-group">
                     <label for="username" style="padding-bottom: 1%;">Username:</label>
                     <input type="text" class="form-control"
-                    [(ngModel)]='user.username'
+                    [(ngModel)]='user.username' #username="ngModel"
                     name='username' placeholder='Enter Username'
                     id='username' required autofocus autocomplete='off'>
+                    <div *ngIf="username.invalid && form.submitted" class='alert-danger'>Username is required</div>
+              
                   </fieldset>
 
                 <fieldset class="form-group">
                     <label for="password" style="padding-top: 3%;">Password:</label>
                     <input type="password" class="form-control"
-                    [(ngModel)]='user.password'
+                    [(ngModel)]='user.password' #password="ngModel"
                     name='password' placeholder='Enter Password'
                     id='password' required autocomplete='off'>
+                    <div *ngIf="password.invalid && form.submitted" class='alert-danger'>Password is required</div>
                     or
                     <a href="/register">Register Here</a>
                   </fieldset>

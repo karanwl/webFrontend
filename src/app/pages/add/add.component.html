@@ -1,10 +1,11 @@
 <div class="container">
     <div class="row">
       <div class="col-md-offset-3 col-md-6">
+      
        <!-- Add Survey Page -->
-       <h3>Add New Survey</h3>
+       <h3 *ngIf='requestType==="add"'>Add New Survey</h3>
           
-            <form [formGroup]= "formdata" (ngSubmit)= "onClickSubmit(formdata.value)">
+            <form *ngIf="requestType=='add'" [formGroup]= "formdata" (ngSubmit)= "onClickSubmit(formdata.value)">
               <div class="form-group">
                 <label for="NameTextField">Title</label>
                 <input type="text" class="form-control" id="NameTextField"
@@ -38,11 +39,57 @@
                 placeholder="Question 3" name="Question_3" formControlName="Question_3" required>
               </div>
 
-              <a >
+              <a href="/home">
                 <button type="submit" class="forsubmit btn btn-success">Submit</button>
               </a> 
               <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
             </form>
+
+            
+            <h1 *ngIf="requestType=='answer'" >Answer Survey </h1>
+            <form *ngIf="requestType=='answer'" [formGroup]= "answerformdata" (ngSubmit)= "onSubmitAnswer(answerformdata.value)">
+
+                <div class="form-group">
+                  <label for="NameTextField">Survey Title: {{surveys.Title}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="DateTextField">Date Created: {{surveys.Date}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="DescriptionTextField">Description: {{surveys.Description}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="Question_1TextField">Question 1 : {{surveys.Question_1}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="Answer_1TextField"> </label>
+                  <input type="text" class="form-control" id="GenreTextField"
+                  placeholder="Answer_1" name="Answer_1" value="{{surveys.Answer_1}}"  formControlName="Answer_1" required>
+                </div>
+                
+                <div class="form-group">
+                  <label for="Question_2TextField">Question 2 : {{surveys.Question_2}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="Answer_2TextField"> </label>
+                  <input type="text" class="form-control" id="GenreTextField"
+                  placeholder="Answer_2" name="Answer_2" value="{{surveys.Answer_2}}" formControlName="Answer_2" required>
+                  
+                </div>
+                <div class="form-group">
+                  <label for="Question_3TextField">Question 3 : {{surveys.Question_3}}</label>
+                </div>
+                <div class="form-group">
+                  <label for="Answer_3TextField"></label>
+                  <input type="text" class="form-control" id="GenreTextField"
+                  placeholder="Answer_3" name="Answer_3" value="{{surveys.Answer_3}}" formControlName="Answer_3" required>
+                </div>
+                <br>
+                <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
+                <a href="/surveys" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
+              </form>
+            
+
       </div>
     </div>
 </div>

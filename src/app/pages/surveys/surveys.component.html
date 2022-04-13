@@ -21,7 +21,7 @@
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Description}}</td>
                 
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">
-                        <a href="/" class="bt btn-primary btn-sm">Answer Survey</a>
+                        <a href="/surveys/add?requestType=answer&surveyId={{survey._id}}" class="bt btn-primary btn-sm">Answer Survey</a>
                     </td>
                 </tr>
             </tbody>

@@ -10,7 +10,6 @@
               <tr>
                 <th>Title</th>
                 <th class="text-center">Date</th>
-                <th class="text-center">User</th>
                 <th class="text-center">Description</th>
                 <th class="text-center"></th>
                 <th *ngIf='isLoggedIn()' class="text-center"></th>
@@ -20,7 +19,6 @@
                 <tr *ngFor="let survey of surveys">
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined'>{{survey.Title}}</td>
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Date}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.User}}</td>
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Description}}</td>
                 
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">
@@ -53,7 +51,6 @@
               <tr>
                 <th>Title</th>
                 <th class="text-center">Date</th>
-                <th class="text-center">User</th>
                 <th class="text-center">Description</th>
                 <th *ngIf='isLoggedIn()' class="text-center"></th>
               </tr>
@@ -62,7 +59,6 @@
                 <tr *ngFor="let survey of surveys">
                     <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.User}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>
               
                     <td  *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">

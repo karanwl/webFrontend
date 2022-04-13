@@ -47,7 +47,7 @@ export class EditComponent implements OnInit {
   onClickSubmit(data: any){
     this.Title = data.Title;
    
-    this.repository.postSurveys(data);
+    this.repository.postSurveysUpdate(this._id,data);
     this.router.navigateByUrl('/home');
     
   }

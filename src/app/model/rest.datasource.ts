@@ -47,6 +47,14 @@ export class RestDataSource {
     });
   }
 
+  postSurveysUpdate(id:any,survey:Surveys)
+  {
+    this.loadToken();
+    
+    return this.http.post(this.baseUrl + 'surveys/edit/'+id, survey).subscribe(res => {
+    });
+  }
+
   getUsers(): Observable<User[]> 
   {
     return this.http.get<any>(this.baseUrl + 'user');

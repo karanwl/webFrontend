@@ -22,6 +22,11 @@ export class SurveyRepository {
     this.dataSource.postSurveys(survey);
   }
   
+  postSurveysUpdate(id:any,survey:Surveys): void
+  {
+    this.dataSource.postSurveysUpdate(id,survey);
+  }
+
   deleteSurvey(id:any): void
   {
     this.dataSource.deleteSurvey(id);

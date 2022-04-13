@@ -32,6 +32,7 @@ export class AddComponent implements OnInit {
   }
 
   onClickSubmit(data: any){
+    console.log(data);
     this.Title = data.Title;
 
     if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){

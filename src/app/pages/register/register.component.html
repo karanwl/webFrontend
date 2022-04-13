@@ -7,43 +7,47 @@
 </div>
 <!--Form-->
 
-<form *ngIf="!regSent" #form='ngForm' novalidate
-(ngSubmit)='regSubmit(form)' class="m-2">
-<div class="offset-md-2 col-md-4">
-    <h1>Register New User</h1>
-    <div class="form-group">
-        <label>Username</label>
-        <input class="form-control" #username='ngModel' name='username'
-        [(ngModel)]='user.username' required>
-        <span *ngIf = 'registered && username.invalid' class='text-danger'>
-            Please Enter Username
-        </span>
+<main class="container">
+    <div class="row" style="padding-top: 7%;padding-left: 10%;"> 
+        <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 3%;padding-top: 1%;">
+            <form *ngIf="!regSent" #form='ngForm' novalidate
+            (ngSubmit)='regSubmit(form)' class="m-2">
+            <div class="offset-md-1 col-md-9">
+                <h1>Register New User</h1>
+                <div class="form-group">
+                    <label>Username</label>
+                    <input class="form-control" #username='ngModel' name='username'
+                    [(ngModel)]='user.username' required>
+                    <span *ngIf = 'registered && username.invalid' class='text-danger'>
+                        Please Enter Username
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input class="form-control" #password='ngModel' name='password'
+                    [(ngModel)]='user.password' required>
+                    <span *ngIf = 'registered && password.invalid' class='text-danger'>
+                        Please Enter Password
+                    </span>
+                </div>
+
+                <div class="form-group">
+                    <label>Display Name</label>
+                    <input class="form-control" #displayName='ngModel' name='displayName'
+                    [(ngModel)]='user.displayName' required>
+                    <span *ngIf = 'registered && displayName.invalid' class='text-danger'>
+                        Please Enter Display Name
+                    </span>
+                </div>
+
+                <div class="text-center" style="padding-top: 3%;"> 
+                    <button class='btn btn-primary m-1' type='submit'>Submit</button>
+                    <button class="btn btn-secondary m-1" routerLink='/login'>Cancel</button>
+                    
+                </div>
+            </div>
+            </form>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label>Password</label>
-        <input class="form-control" #password='ngModel' name='password'
-        [(ngModel)]='user.password' required>
-        <span *ngIf = 'registered && password.invalid' class='text-danger'>
-            Please Enter Password
-        </span>
-    </div>
-
-    <div class="form-group">
-        <label>Display Name</label>
-        <input class="form-control" #displayName='ngModel' name='displayName'
-        [(ngModel)]='user.displayName' required>
-        <span *ngIf = 'registered && displayName.invalid' class='text-danger'>
-            Please Enter Display Name
-        </span>
-    </div>
-
-    <div class="text-center">
-        <button class='btn btn-primary m-1' type='submit'>Submit</button>
-        <button class="btn btn-secondary m-1" routerLink='/surveys'>Cancel</button>
-        
-    </div>
-</div>
-</form>
-
-
+</main>

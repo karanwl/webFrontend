@@ -40,7 +40,6 @@ export class AddComponent implements OnInit {
         this.surveyObject =  survey;
       }
 
-      
     });
 
     return this.surveyObject;
@@ -65,8 +64,6 @@ export class AddComponent implements OnInit {
       }
     );
 
-
-
     this.answerformdata = new FormGroup({
       Answer_1: new FormControl(),
       Answer_2: new FormControl(),
@@ -78,14 +75,18 @@ export class AddComponent implements OnInit {
 
   onClickSubmit(data: any){
     this.Title = data.Title;
-
-    if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
-      data.User=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+    if(this.formdata.valid)
+    {
+      if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
+        data.User=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+      }
+      this.repository.postSurveys(data);
+      this.router.navigate(['/home']);
     }
-
-    this.repository.postSurveys(data);
-
-    this.router.navigate(['/home']);
+    else
+    { 
+      console.log('NOT VALID')
+    }
   }
 
 
@@ -98,21 +99,24 @@ export class AddComponent implements OnInit {
         this.surveyRequestObject['Question_1'] =this.surveyObject.Question_1;
         this.surveyRequestObject['Question_2'] =this.surveyObject.Question_2;
         this.surveyRequestObject['Question_3'] =this.surveyObject.Question_3;
-        if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
-          this.surveyRequestObject['User']=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
-        }
+    
+    
+      if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null)
+      {
+        this.surveyRequestObject['User']=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+      }
         
-        
-    //alert(data.Answer_1)    
-    this.surveyRequestObject['Answer_1'] =data.Answer_1;
-    this.surveyRequestObject['Answer_2'] = data.Answer_2;
-    this.surveyRequestObject['Answer_3']=data.Answer_3;
+      //alert(data.Answer_1)    
+      this.surveyRequestObject['Answer_1'] =data.Answer_1;
+      this.surveyRequestObject['Answer_2'] = data.Answer_2;
+      this.surveyRequestObject['Answer_3']=data.Answer_3;
 
-    //alert(this.surveyRequestObject);
+      //alert(this.surveyRequestObject);
 
-    this.repository.postSurveys(this.surveyRequestObject);
+      this.repository.postSurveys(this.surveyRequestObject);
 
-    this.router.navigate(['/home']);
+      this.router.navigate(['/home']);
+    
   }
 
 }

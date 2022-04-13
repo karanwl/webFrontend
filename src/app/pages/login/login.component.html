@@ -1,11 +1,11 @@
 <main class="container">
 
-    <div class="row">
-        <div class="offset-md-2 col-md-4">
+    <div class="row" style="padding-top: 7%;padding-left: 14%;"> 
+        <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 4%;padding-top: 1%;padding-left: 5%;padding-right: 5%;">
             <h1>Please Login</h1>
-            <form action=" " method="POST" autocomplete="off" #form='ngForm' (ngSubmit)='authenticate(form)'>
+            <form action="" method="POST" autocomplete="off" #form='ngForm' (ngSubmit)='authenticate(form)'>
                 <fieldset class="form-group">
-                    <label for="username">Username:</label>
+                    <label for="username" style="padding-bottom: 1%;">Username:</label>
                     <input type="text" class="form-control"
                     [(ngModel)]='user.username'
                     name='username' placeholder='Enter Username'
@@ -13,7 +13,7 @@
                   </fieldset>
 
                 <fieldset class="form-group">
-                    <label for="password">Password:</label>
+                    <label for="password" style="padding-top: 3%;">Password:</label>
                     <input type="password" class="form-control"
                     [(ngModel)]='user.password'
                     name='password' placeholder='Enter Password'
@@ -22,8 +22,8 @@
                     <a href="/register">Register Here</a>
                   </fieldset>
                 
-                <fieldset class="form-group text-right">
-                    <input type="submit" class="btn btn-success" value="Login">
+                <fieldset class="form-group text-right" style="padding-top: 3%;">
+                    <input type="submit" class="btn btn-primary" value="Login">
                 </fieldset>
 
             </form>

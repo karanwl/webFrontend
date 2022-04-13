@@ -57,7 +57,7 @@
               
                     <td  *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">
                         <a href="/">
-                          <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey)">Delete</button>
+                          <button type="button" class="btn btn-danger btn-sm" (click)="deleteSurvey(survey._id)">Delete</button>
                         </a>
                     </td>
                 </tr>

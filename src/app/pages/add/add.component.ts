@@ -20,7 +20,6 @@ export class AddComponent implements OnInit {
   ngOnInit() {
     this.formdata = new FormGroup({
         Title: new FormControl(),
-        User : new FormControl(),
         Date: new FormControl(),
         Description: new FormControl(),
         Question_1: new FormControl(),
@@ -33,6 +32,12 @@ export class AddComponent implements OnInit {
 
   onClickSubmit(data: any){
     this.Title = data.Title;
+
+    if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
+      data.User=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+    }
+
+    alert(data.User);
    
     this.repository.postSurveys(data);
     this.router.navigateByUrl('/home');

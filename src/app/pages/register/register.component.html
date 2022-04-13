@@ -17,7 +17,8 @@
                 <div class="form-group">
                     <label>Username</label>
                     <input class="form-control" #username='ngModel' name='username'
-                    [(ngModel)]='user.username' required>
+                    [(ngModel)]='user.username' minlength="6" required>
+                    <div *ngIf="username.errors?.['minlength']" class='alert-danger'>Must be atleast 6 characters long</div>
                     <span *ngIf = 'registered && username.invalid' class='alert-danger'>
                         Please Enter Username
                     </span>
@@ -26,7 +27,8 @@
                 <div class="form-group">
                     <label>Password</label>
                     <input class="form-control" type="password" #password='ngModel' name='password'
-                    [(ngModel)]='user.password' required>
+                    [(ngModel)]='user.password' minlength="6" required>
+                    <div *ngIf="password.errors?.['minlength']" class='alert-danger'>Must be atleast 6 characters long</div>
                     <span *ngIf = 'registered && password.invalid' class='alert-danger'>
                         Please Enter Password
                     </span>

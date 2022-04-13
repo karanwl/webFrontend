@@ -8,9 +8,10 @@
                 <fieldset class="form-group">
                     <label for="username" style="padding-bottom: 1%;">Username:</label>
                     <input type="text" class="form-control"
-                    [(ngModel)]='user.username' #username="ngModel"
+                    [(ngModel)]='user.username' minlength="6" #username="ngModel" 
                     name='username' placeholder='Enter Username'
                     id='username' required autofocus autocomplete='off'>
+                    <div *ngIf="username.errors?.['minlength']" class='alert-danger'>Must be atleast 6 characters long</div>
                     <div *ngIf="username.invalid && form.submitted" class='alert-danger'>Username is required</div>
               
                   </fieldset>
@@ -18,9 +19,10 @@
                 <fieldset class="form-group">
                     <label for="password" style="padding-top: 3%;">Password:</label>
                     <input type="password" class="form-control"
-                    [(ngModel)]='user.password' #password="ngModel"
+                    [(ngModel)]='user.password' minlength="6" #password="ngModel"
                     name='password' placeholder='Enter Password'
                     id='password' required autocomplete='off'>
+                    <div *ngIf="password.errors?.['minlength']" class='alert-danger'>Must be atleast 6 characters long</div>
                     <div *ngIf="password.invalid && form.submitted" class='alert-danger'>Password is required</div>
                     or
                     <a href="/register">Register Here</a>

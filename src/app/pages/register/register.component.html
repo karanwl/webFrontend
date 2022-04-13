@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <label>Password</label>
-                    <input class="form-control" #password='ngModel' name='password'
+                    <input class="form-control" type="password" #password='ngModel' name='password'
                     [(ngModel)]='user.password' required>
                     <span *ngIf = 'registered && password.invalid' class='text-danger'>
                         Please Enter Password

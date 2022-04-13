@@ -57,7 +57,7 @@
 
             <!-- Answer Survey Page -->
             <h1 *ngIf="requestType=='answer'" >Answer Survey </h1>
-            <form *ngIf="requestType=='answer'" [formGroup]= "answerformdata" (ngSubmit)= "onSubmitAnswer(answerformdata.value)">
+            <form *ngIf="requestType=='answer'" [formGroup]= "answerformdata" (ngSubmit)= "onSubmitAnswer(answerformdata.value)" #myform="ngForm">
 
                 <div class="form-group">
                   <label for="NameTextField">Survey Title: {{surveys.Title}}</label>
@@ -76,31 +76,34 @@
                 </div>
 
                 <div class="form-group">
-                  <label for="Answer_1TextField"> </label>
+                  <label for="Answer_1TextField">Answer: </label>
                   <input type="text" class="form-control" id="GenreTextField"
-                  placeholder="Answer_1" name="Answer_1" value="{{surveys.Answer_1}}"  formControlName="Answer_1" required>
+                  placeholder="Please write your answer here" name="Answer_1" value="{{surveys.Answer_1}}"  formControlName="Answer_1" required>
                 </div>
-                
+                <div *ngIf="answerformdata.get('Answer_1').hasError('required') && myform.submitted" class='alert-danger'>Answer is required</div>
+              
                 <div class="form-group">
                   <label for="Question_2TextField">Question 2 : {{surveys.Question_2}}</label>
                 </div>
 
                 <div class="form-group">
-                  <label for="Answer_2TextField"> </label>
+                  <label for="Answer_2TextField">Answer: </label>
                   <input type="text" class="form-control" id="GenreTextField"
-                  placeholder="Answer_2" name="Answer_2" value="{{surveys.Answer_2}}" formControlName="Answer_2" required>
+                  placeholder="Please write your answer here" name="Answer_2" value="{{surveys.Answer_2}}" formControlName="Answer_2" required>
                 </div>
-                
+                <div *ngIf="answerformdata.get('Answer_2').hasError('required') && myform.submitted" class='alert-danger'>Answer is required</div>
+              
                 <div class="form-group">
                   <label for="Question_3TextField">Question 3 : {{surveys.Question_3}}</label>
                 </div>
 
                 <div class="form-group">
-                  <label for="Answer_3TextField"></label>
+                  <label for="Answer_3TextField">Answer: </label>
                   <input type="text" class="form-control" id="GenreTextField"
-                  placeholder="Answer_3" name="Answer_3" value="{{surveys.Answer_3}}" formControlName="Answer_3" required>
+                  placeholder="Please write your answer here" name="Answer_3" value="{{surveys.Answer_3}}" formControlName="Answer_3" required>
                 </div>
-                
+                <div *ngIf="answerformdata.get('Answer_3').hasError('required') && myform.submitted" class='alert-danger'>Answer is required</div>
+              
                 <br>
                 <button type="submit" class="btn btn-primary"><i class="fa fa-check-square-o"></i> Submit</button>
                 <a href="/surveys" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>

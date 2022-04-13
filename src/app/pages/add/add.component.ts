@@ -69,8 +69,6 @@ export class AddComponent implements OnInit {
       Answer_2: new FormControl(),
       Answer_3: new FormControl()
     });
-
-
   }
 
   onClickSubmit(data: any){
@@ -89,9 +87,9 @@ export class AddComponent implements OnInit {
     }
   }
 
-
   onSubmitAnswer(data: any){
-
+    if(this.answerformdata.valid)
+    {
     this.surveyRequestObject =new Surveys();
         this.surveyRequestObject['Title'] =this.surveyObject.Title;
         this.surveyRequestObject['Description'] =this.surveyObject.Description;
@@ -99,8 +97,7 @@ export class AddComponent implements OnInit {
         this.surveyRequestObject['Question_1'] =this.surveyObject.Question_1;
         this.surveyRequestObject['Question_2'] =this.surveyObject.Question_2;
         this.surveyRequestObject['Question_3'] =this.surveyObject.Question_3;
-    
-    
+
       if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null)
       {
         this.surveyRequestObject['User']=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
@@ -116,7 +113,11 @@ export class AddComponent implements OnInit {
       this.repository.postSurveys(this.surveyRequestObject);
 
       this.router.navigate(['/home']);
-    
+    }
+    else
+    { 
+      console.log('NOT VALID')
+    }
   }
 
 }

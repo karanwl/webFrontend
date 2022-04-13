@@ -31,6 +31,7 @@ export function jwtTokenGetter()
     EditComponent,
   ],
   imports: [
+    DataTablesModule,
     BrowserModule,
     AppRoutingModule,
     SurveyModule,
@@ -38,9 +39,7 @@ export function jwtTokenGetter()
     LoginModule,
     ReactiveFormsModule,
     FormsModule,
-    DataTablesModule,
     ViewSurveyResultModule,
-
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter

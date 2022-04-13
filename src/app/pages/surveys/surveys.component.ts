@@ -28,8 +28,9 @@ export class SurveysComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  deleteSurvey(survey:any){
-    return this.repository.deleteSurvey(survey.id);
+  deleteSurvey(id:any){
+    console.log(id);
+    return this.repository.deleteSurvey(id);
   }
 
   isLoggedIn(): boolean

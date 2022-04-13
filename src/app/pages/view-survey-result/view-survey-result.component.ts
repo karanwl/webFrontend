@@ -4,6 +4,7 @@ import { Surveys } from 'src/app/model/survey.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
 import { User } from 'src/app/model/user.model';
 import { RestDataSource } from "src/app/model/rest.datasource";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-view-survey-result',
@@ -13,10 +14,13 @@ import { RestDataSource } from "src/app/model/rest.datasource";
 export class ViewSurveyResultComponent implements OnInit {
 
   user!: User;
+  title:String;
+
   displayName:String;
   constructor(private repository: SurveyRepository,
               private authService: AuthService,
-              private datasource: RestDataSource) { }
+              private datasource: RestDataSource,
+              private route: ActivatedRoute) { }
 
   get surveys(): Surveys[] {
     
@@ -27,6 +31,14 @@ export class ViewSurveyResultComponent implements OnInit {
   }
   
   ngOnInit(): void {
+
+    this.route.queryParams
+    .subscribe(params => {
+      console.log(params); 
+      this.title = params['id'];
+    }
+  );
+
   }
 
   isLoggedIn(): boolean

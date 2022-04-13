@@ -3,6 +3,7 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Router } from "@angular/router";
 
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -37,11 +38,9 @@ export class AddComponent implements OnInit {
       data.User=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
     }
 
-    alert(data.User);
-   
     this.repository.postSurveys(data);
-    this.router.navigateByUrl('/home');
-    
+
+    this.router.navigate(['/home']);
   }
 
 }

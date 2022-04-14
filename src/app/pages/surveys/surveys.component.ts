@@ -51,13 +51,10 @@ export class SurveysComponent implements OnInit {
     return  this.activeSurveyList;
   }
 
-  
-  
   ngOnInit(): void {
   }
 
   deleteSurvey(id:any){
-    console.log(id);
     return this.repository.deleteSurvey(id);
   }
 
@@ -65,10 +62,8 @@ export class SurveysComponent implements OnInit {
   {
     const result = this.authService.authenticated;
     if(result)
-    {
-      
-      this.user = JSON.parse(JSON.stringify(localStorage.getItem('user')));
-      
+    { 
+      this.user = JSON.parse(JSON.stringify(localStorage.getItem('user'))); 
     }else{
       this.router.navigate(['/login']);
     }

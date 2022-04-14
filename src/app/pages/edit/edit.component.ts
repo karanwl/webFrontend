@@ -18,15 +18,23 @@ export class EditComponent implements OnInit {
 
   constructor(private repository: SurveyRepository,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+                this.surveys();
+               }
      
-  get surveys(): Surveys[] {
+   surveys(): Surveys {
 
     this._id = this.route.snapshot.params['id'];
     console.log(this._id)
 
-    this.surveyById = this.getSurveyByID(this._id);
-    return this.repository.getSurveys();
+   this.repository.getSurveys().forEach(survey => {
+     if(survey._id===this._id){
+      this.surveyById= survey;
+     }
+   });
+
+    return  this.surveyById;
+
   }
   
   //formdata!: FormGroup;
@@ -34,7 +42,7 @@ export class EditComponent implements OnInit {
     this._id = this.route.snapshot.params['id'];
     console.log(this._id)
 
-    this.surveyById = this.getSurveyByID(this._id)
+    this.surveys();
     
     this.formdata = new FormGroup({
         Title: new FormControl(),

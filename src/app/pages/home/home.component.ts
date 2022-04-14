@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
     
     return this.repository.getSurveys();
   }
+  
 
   deleteSurvey(id:any){
     console.log(id);
@@ -53,3 +54,4 @@ export class HomeComponent implements OnInit {
   }
 
 }
+

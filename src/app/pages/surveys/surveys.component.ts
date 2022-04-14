@@ -5,6 +5,7 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
 import { User } from 'src/app/model/user.model';
 import { RestDataSource } from "src/app/model/rest.datasource";
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-surveys',
@@ -16,6 +17,9 @@ export class SurveysComponent implements OnInit {
   displayName:String;
   activeSurveyList:Surveys[]=[];
   allSurveyList:Surveys[];
+  dtOptions:DataTables.Settings={};
+
+  dtTrigger: Subject<any> = new Subject<any>();
 
   constructor(private repository: SurveyRepository,
               private authService: AuthService,
@@ -71,3 +75,4 @@ export class SurveysComponent implements OnInit {
   }
 
 }
+

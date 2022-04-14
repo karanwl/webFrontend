@@ -1,65 +1,62 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-12"><br>
-        <h3>Active Surveys </h3>
-        
-        <br>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th class="text-center">Date</th>
-                <th class="text-center">Description</th>
-                <th class="text-center"></th>
+  <div class="row">
+    <div class="col-md-offset-1 col-md-12 ">
+      <h3 style="padding-top: 6px;">Active Surveys </h3>
+      <div class="comp_table">
+        <table  class=" table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th class="text-center">Date</th>
+              <th class="text-center">Description</th>
+              <th class="text-center"></th>
+            </tr>
+          </thead>
+          <tbody *ngIf='isLoggedIn()'>
+              <tr *ngFor="let survey of surveys">
+                  <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined'>{{survey.Title}}</td>
+                  <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Date}}</td>
+                  <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Description}}</td>
+              
+                  <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">
+                      <a href="/surveys/add?requestType=answer&surveyId={{survey._id}}" class="bt btn-primary btn-sm">Answer Survey</a>
+                  </td>
               </tr>
-            </thead>
-            <tbody *ngIf='isLoggedIn()'>
-                <tr *ngFor="let survey of surveys">
-                    <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined'>{{survey.Title}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Date}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Description}}</td>
-                
-                    <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">
-                        <a href="/surveys/add?requestType=answer&surveyId={{survey._id}}" class="bt btn-primary btn-sm">Answer Survey</a>
-                    </td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-offset-1 col-md-10 text-center">
-          <ul class="pagination pagination-lg pager" id="myPager"></ul>
-        </div>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-offset-1 col-md-10 text-center">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
       </div>
     </div>
+  </div>
 
-    <br>
+ 
 
-    <div class="row">
-      <div class="col-md-offset-1 col-md-12">
-        <h3>Completed Surveys </h3>   
-        <br>
-        <div class="table-responsive">
-          <table class="table table-bordered table-striped table-hover">
-            <thead>
-              <tr>
-                <th>Title</th>
-                <th class="text-center">Date</th>
-                <th class="text-center">Description</th> 
+  <div class="row">
+    <div class="col-md-offset-1 col-md-12" style="margin-bottom: 8%;">
+      <h3>Completed Surveys </h3>   
+      <div class="table-responsive comp_table">
+        <table class=" table table-bordered  table-hover">
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th class="text-center">Date</th>
+              <th class="text-center">Description</th> 
+            </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor="let survey of surveys">
+                  <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
+                  <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
+                  <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>
               </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let survey of surveys">
-                    <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
-                    <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>
-                </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-md-offset-1 col-md-10 text-center">
-          <ul class="pagination pagination-lg pager" id="myPager"></ul>
-        </div>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-offset-1 col-md-10 text-center">
+        <ul class="pagination pagination-lg pager" id="myPager"></ul>
       </div>
     </div>
+  </div>
 </div>

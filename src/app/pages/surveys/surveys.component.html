@@ -14,7 +14,7 @@
                 <th class="text-center"></th>
               </tr>
             </thead>
-            <tbody>
+            <tbody *ngIf='isLoggedIn()'>
                 <tr *ngFor="let survey of surveys">
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined'>{{survey.Title}}</td>
                     <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Date}}</td>
@@ -45,12 +45,11 @@
               <tr>
                 <th>Title</th>
                 <th class="text-center">Date</th>
-                <th class="text-center">Description</th>
-                
+                <th class="text-center">Description</th> 
               </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let survey of surveys">
+                <tr *ngFor="let survey of completedSurveyList">
                     <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>
@@ -63,6 +62,4 @@
         </div>
       </div>
     </div>
-
-
 </div>

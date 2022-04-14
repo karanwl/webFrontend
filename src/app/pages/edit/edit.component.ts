@@ -13,13 +13,19 @@ export class EditComponent implements OnInit {
   formdata: any = {}
   Title: any;
   _id: any;
-  survey: Surveys[]
+  survey: Surveys[];
+  surveyById:any;
 
   constructor(private repository: SurveyRepository,
               private router: Router,
               private route: ActivatedRoute) { }
      
   get surveys(): Surveys[] {
+
+    this._id = this.route.snapshot.params['id'];
+    console.log(this._id)
+
+    this.surveyById = this.getSurveyByID(this._id);
     return this.repository.getSurveys();
   }
   
@@ -27,6 +33,8 @@ export class EditComponent implements OnInit {
   ngOnInit() {
     this._id = this.route.snapshot.params['id'];
     console.log(this._id)
+
+    this.surveyById = this.getSurveyByID(this._id)
     
     this.formdata = new FormGroup({
         Title: new FormControl(),

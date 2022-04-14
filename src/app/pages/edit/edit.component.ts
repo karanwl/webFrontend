@@ -50,13 +50,13 @@ export class EditComponent implements OnInit {
     this.surveys();
     
     this.formdata = new FormGroup({
-        Title: new FormControl(),
-        User : new FormControl(),
-        Date: new FormControl(),
-        Description: new FormControl(),
-        Question_1: new FormControl(),
-        Question_2: new FormControl(),
-        Question_3: new FormControl()
+        Title: new FormControl(this.surveyById.Title),
+        User : new FormControl(this.surveyById.User),
+        Date: new FormControl(this.surveyById.Date),
+        Description: new FormControl(this.surveyById.Description),
+        Question_1: new FormControl(this.surveyById.Question_1),
+        Question_2: new FormControl(this.surveyById.Question_2),
+        Question_3: new FormControl(this.surveyById.Question_3)
       });
   }
   

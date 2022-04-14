@@ -2,12 +2,12 @@
     <div *ngIf='regSent' class="m-2 text-center">
         <h2>Thanks!</h2>
         <p>New User Created</p>
-        <button class="btn btn-primary" routerLink = '/surveys'>Back</button>
+        <button class="btn btn-primary" routerLink = '/home'>Continue</button>
     </div>
 </div>
 <!--Form-->
 
-<main class="container">
+<main *ngIf="!regSent" class="container">
     <div class="row" style="padding-top: 7%;padding-left: 10%;"> 
         <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 3%;padding-top: 1%;">
             <form *ngIf="!regSent" #form='ngForm' novalidate

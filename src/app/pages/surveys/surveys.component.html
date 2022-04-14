@@ -49,7 +49,7 @@
               </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let survey of completedSurveyList">
+                <tr *ngFor="let survey of surveys">
                     <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>
                     <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Description}}</td>

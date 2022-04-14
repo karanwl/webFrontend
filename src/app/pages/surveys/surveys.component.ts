@@ -15,7 +15,6 @@ export class SurveysComponent implements OnInit {
   user!: User;
   displayName:String;
   activeSurveyList:Surveys[]=[];
-  completedSurveyList:Surveys[]=[];
   allSurveyList:Surveys[];
 
   constructor(private repository: SurveyRepository,
@@ -31,7 +30,6 @@ export class SurveysComponent implements OnInit {
 
       this.allSurveyList = this.repository.getSurveys();
       this.activeSurveyList=[];
-      this.completedSurveyList=[];
       let completedSurveyByUserId: (string | undefined)[] = [];
       let completedSurveyByUserTitle: (string | undefined)[] = [];
 
@@ -45,14 +43,11 @@ export class SurveysComponent implements OnInit {
      this.allSurveyList.forEach(survey => {
 
       if(completedSurveyByUserId.indexOf(survey._id)!==-1){
-        this.completedSurveyList.push(survey);
+        this.activeSurveyList.push(survey);
       }else if(survey.User!==this.displayName && survey.Answer_1===undefined && completedSurveyByUserTitle.indexOf(survey.Title)===-1){
         this.activeSurveyList.push(survey);
       }
     });
-    console.log(this.completedSurveyList);
-    console.log(this.activeSurveyList);
-
     return  this.activeSurveyList;
   }
 

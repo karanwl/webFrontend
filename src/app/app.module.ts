@@ -40,6 +40,7 @@ export function jwtTokenGetter()
     ReactiveFormsModule,
     FormsModule,
     ViewSurveyResultModule,
+    DataTablesModule,
     JwtModule.forRoot({
       config: {
         tokenGetter: jwtTokenGetter

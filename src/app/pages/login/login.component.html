@@ -8,7 +8,7 @@
                 <fieldset class="form-group">
                     <label for="username" style="padding-bottom: 1%;">Username:</label>
                     <input type="text" class="form-control"
-                    [(ngModel)]='user.username' minlength="6" #username="ngModel" 
+                    [(ngModel)]='user.username' minlength="4" #username="ngModel" 
                     name='username' placeholder='Enter Username'
                     id='username' required autofocus autocomplete='off'>
                     <div *ngIf="username.errors?.['minlength']" class='alert-danger'>Must be atleast 6 characters long</div>

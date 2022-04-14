@@ -1,0 +1,23 @@
+a,i{
+
+    cursor: pointer;
+
+}
+
+
+
+.fixed {
+
+    position: sticky; /* Allocates space for the element, but moves it with you when you scroll */
+
+    top: 0; /* specifies the start position for the sticky behavior - 0 is pretty common */
+
+    width: 100%;
+
+    padding: 5px 0 5px 15px;
+
+    color: white;
+
+    background-color: #337AB7;
+
+    margin: 0; }

@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
+import { AuthService } from 'src/app/model/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Surveys } from 'src/app/model/survey.model';
+import { User } from 'src/app/model/user.model';
 import { SurveyRepository } from 'src/app/model/survey.repository';
+
 
 @Component({
   selector: 'app-edit',
@@ -11,12 +14,14 @@ import { SurveyRepository } from 'src/app/model/survey.repository';
 })
 export class EditComponent implements OnInit {
   formdata: any = {}
+  user!: User;
   Title: any;
   _id: any;
   survey: Surveys[];
   surveyById:any;
 
   constructor(private repository: SurveyRepository,
+               private authService: AuthService,
               private router: Router,
               private route: ActivatedRoute) {
                 this.surveys();
@@ -67,4 +72,18 @@ export class EditComponent implements OnInit {
     this.router.navigateByUrl('/home');
     
   }
+
+  isLoggedIn(): boolean
+  {
+    const result = this.authService.authenticated;
+    if(result)
+    { 
+      this.user = JSON.parse(JSON.stringify(localStorage.getItem('user'))); 
+    }else{
+      this.router.navigate(['/login']);
+    }
+    return result;
+  }
+
 }
+

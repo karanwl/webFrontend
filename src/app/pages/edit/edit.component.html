@@ -1,47 +1,48 @@
 <div class="container">
-    <div class="row">
-      <div class="col-md-offset-3 col-md-6">
-       <!-- Edit Survey Page -->
-       <h3 *ngIf='surveys()'>Edit Survey</h3>
-            <form [formGroup]= "formdata" (ngSubmit)= "onClickSubmit(formdata.value)">
-              <div class="form-group">
-                <label for="NameTextField">Title</label>
-                <input type="text" class="form-control" id="NameTextField"
-                placeholder="{{surveyById.Title}}" name="Title" formControlName="Title" required>
-              </div>
-              <div class="form-group">
-                <label for="DateTextField">Date</label>
-                <input type="date" class="form-control" id="DateTextField"
-                placeholder="{{surveyById.Date}}" name="Date" formControlName="Date" required>
-              </div>
-              <div class="form-group">
-                <label for="DescriptionTextField">Description</label>
-                <input type="text" class="form-control" id="DescriptionTextField"
-                placeholder="{{surveyById.Description}}" name="Description" formControlName="Description" required>
-              </div>
-              <div class="form-group">
-                <label for="Question_1TextField">Question_1</label>
-                <input type="text" class="form-control" id="GenreTextField"
-                placeholder="{{surveyById.Question_1}}" name="Question_1" formControlName="Question_1" required>
-              </div>
-               
-               <div class="form-group">
-                <label for="Question_2TextField">Question_2</label>
-                <input type="text" class="form-control" id="GenreTextField"
-                placeholder="{{surveyById.Question_2}}" name="Question_2" formControlName="Question_2" required>
-              </div>
-               
-               <div class="form-group">
-                <label for="Question_3TextField">Question_3</label>
-                <input type="text" class="form-control" id="GenreTextField"
-                placeholder="{{surveyById.Question_3}}" name="Question_3" formControlName="Question_3" required>
-              </div>
+  <div class="row" style="padding-top: 3%;padding-left: 14%;">
+    <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 4%;padding-top: 1%;padding-left: 5%;padding-right: 5%;">
+     <!-- Edit Survey Page -->
+     <h3 *ngIf='surveys() && isLoggedIn()'>Edit Survey</h3>
+          <form [formGroup]= "formdata" (ngSubmit)= "onClickSubmit(formdata.value)">
+            <div class="form-group">
+              <label for="NameTextField">Title</label>
+              <input type="text" class="form-control" id="NameTextField"
+              placeholder="{{surveyById.Title}}" name="Title" formControlName="Title" required>
+            </div>
+            <div class="form-group" style="padding-top: 1%;">
+              <label for="DateTextField">Date</label>
+              <input type="date" class="form-control" id="DateTextField"
+              placeholder="{{surveyById.Date}}" name="Date" formControlName="Date" required>
+            </div>
+            <div class="form-group" style="padding-top: 1%;">
+              <label for="DescriptionTextField">Description</label>
+              <input type="text" class="form-control" id="DescriptionTextField"
+              placeholder="{{surveyById.Description}}" name="Description" formControlName="Description" required>
+            </div>
+            <div class="form-group" style="padding-top: 1%;">
+              <label for="Question_1TextField">Question_1</label>
+              <input type="text" class="form-control" id="GenreTextField"
+              placeholder="{{surveyById.Question_1}}" name="Question_1" formControlName="Question_1" required>
+            </div>
+             
+             <div class="form-group" style="padding-top: 1%;">
+              <label for="Question_2TextField">Question_2</label>
+              <input type="text" class="form-control" id="GenreTextField"
+              placeholder="{{surveyById.Question_2}}" name="Question_2" formControlName="Question_2" required>
+            </div>
+             
+             <div class="form-group" style="padding-top: 1%;">
+              <label for="Question_3TextField">Question_3</label>
+              <input type="text" class="form-control" id="GenreTextField"
+              placeholder="{{surveyById.Question_3}}" name="Question_3" formControlName="Question_3" required>
+            </div>
 
-              <a href="/">
-                <button type="submit" class="forsubmit btn btn-success">Submit</button>
-              </a> 
-              <a href="/" class="btn btn-warning"><i class="fa fa-undo"></i> Cancel</a>
-            </form>
-      </div>
+            <div style="padding-top: 3%;">
+           
+              <button type="submit" class="forsubmit btn btn-primary" >Submit</button>
+       
+            <a href="/" class="btn btn-warning" style="margin-left: 3%;"><i class="fa fa-undo" ></i> Cancel</a></div>
+          </form>
     </div>
+  </div>
 </div>

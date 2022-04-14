@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
         {
           GlobalComponent.displayName = data.user.displayName;
           this.auth.storeUserData(data.token, data.user);
-          this.router.navigateByUrl('/home');
+          
         }
       });
     }   

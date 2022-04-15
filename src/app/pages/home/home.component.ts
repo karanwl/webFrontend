@@ -14,10 +14,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private repository: SurveyRepository,
               private router: Router,
-              private authService: AuthService) { }
+              private authService: AuthService) {
+               }
   user!: User;
   displayName:String;
   get surveys(): Surveys[] {
+
     if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
       this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
     }
@@ -52,7 +54,6 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit(): void {
-
   }
 
 }

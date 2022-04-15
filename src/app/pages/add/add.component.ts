@@ -83,7 +83,9 @@ export class AddComponent implements OnInit {
         data.User=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
       }
       this.repository.postSurveys(data);
-      this.router.navigate(['/home']);
+      window.location.href = '/home';
+     // this.router.navigate(['/home']);
+
     }
     else
     { 
@@ -115,8 +117,8 @@ export class AddComponent implements OnInit {
       //alert(this.surveyRequestObject);
 
       this.repository.postSurveys(this.surveyRequestObject);
-
-      this.router.navigate(['/home']);
+      window.location.href = '/surveys';
+     // this.router.navigate(['/home']);
     }
     else
     { 

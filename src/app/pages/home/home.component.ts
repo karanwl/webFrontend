@@ -21,6 +21,8 @@ export class HomeComponent implements OnInit {
     if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
       this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
     }
+
+    $(".headerUser").text("Welcome, "+this.displayName);
     
     return this.repository.getSurveys();
   }

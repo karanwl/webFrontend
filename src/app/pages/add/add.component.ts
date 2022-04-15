@@ -24,15 +24,19 @@ export class AddComponent implements OnInit {
 
   constructor(private repository: SurveyRepository,
               private router: Router,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute) {
+                  if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
+                  this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+                  }   
+                  $(".headerUser").text("Welcome, "+this.displayName);
+               }
   //formdata!: FormGroup;
   displayName = "";
 
   get surveys(): Surveys{
    
-    if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
-      this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
-    }
+
+
      this.repository.getSurveys().forEach(survey => {
 
       if(survey._id===this.surveyId){

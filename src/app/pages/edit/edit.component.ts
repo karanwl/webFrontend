@@ -19,6 +19,11 @@ export class EditComponent implements OnInit {
   _id: any;
   survey: Surveys[];
   surveyById:any;
+  displayName = "";
+
+ 
+   
+   
 
   constructor(private repository: SurveyRepository,
                private authService: AuthService,
@@ -30,7 +35,13 @@ export class EditComponent implements OnInit {
    surveys(): Surveys {
 
     this._id = this.route.snapshot.params['id'];
-    console.log(this._id)
+
+    if(JSON.parse(JSON.stringify(localStorage.getItem('user')))!==null){
+      this.displayName=JSON.parse(JSON.parse(JSON.stringify(localStorage.getItem('user')))).displayName;
+    }
+
+    $(".headerUser").text("Welcome, "+this.displayName);
+   
 
    this.repository.getSurveys().forEach(survey => {
      if(survey._id===this._id){

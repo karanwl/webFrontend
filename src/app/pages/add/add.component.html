@@ -9,10 +9,11 @@
             
             <div class="form-group"  style="padding-top: 1%;">
               <label for="NameTextField">Title</label>
-              <input type="text" class="form-control" id="NameTextField"
-              placeholder="Survey Title" name="Title" formControlName="Title" required>
+              <input type="text" class="form-control" minlength="5" id="NameTextField"
+              placeholder="Survey Title" name="Title" formControlName="Title" required maxlength="40">
             </div>
             <div *ngIf="formdata.get('Title').hasError('required') && myform.submitted" class='alert-danger'>Survey Title is required</div>
+            <div *ngIf="formdata.get('Title').hasError('minlength') && myform.submitted" class='alert-danger'>Length should be atleast 5</div>
             
             <div class="form-group"  style="padding-top: 1%;">
               <label for="DateTextField">Date</label>
@@ -23,32 +24,36 @@
             
             <div class="form-group"  style="padding-top: 1%;">
               <label for="DescriptionTextField">Description</label>
-              <input type="text" class="form-control" id="DescriptionTextField"
-              placeholder="Survey Description" name="Description" formControlName="Description" required>
+              <input type="text" class="form-control" minlength="5" id="DescriptionTextField"
+              placeholder="Survey Description" name="Description" formControlName="Description" required minlength="5" maxlength="100">
             </div>
             <div *ngIf="formdata.get('Description').hasError('required') && myform.submitted" class='alert-danger'>Description is required</div>
+            <div *ngIf="formdata.get('Description').hasError('minlength') && myform.submitted" class='alert-danger'>Length should be atleast 5</div>
             
             <div class="form-group"  style="padding-top: 1%;">
               <label for="Question_1TextField">Question 1</label>
-              <input type="text" class="form-control" id="GenreTextField"
-              placeholder="Question 1" name="Question_1" formControlName="Question_1" required>
+              <input type="text" class="form-control" minlength="5"  id="GenreTextField"
+              placeholder="Question 1" name="Question_1" formControlName="Question_1" required minlength="5" maxlength="100"> 
             </div>
             <div *ngIf="formdata.get('Question_1').hasError('required') && myform.submitted" class='alert-danger'>Question is required</div>
-                           
+            <div *ngIf="formdata.get('Question_1').hasError('minlength') && myform.submitted" class='alert-danger'>Length should be atleast 5</div>
+                          
              <div class="form-group"  style="padding-top: 1%;">
               <label for="Question_2TextField">Question 2</label>
-              <input type="text" class="form-control" id="GenreTextField"
-              placeholder="Question 2" name="Question_2" formControlName="Question_2" required>
+              <input type="text" class="form-control" minlength="5"  id="GenreTextField"
+              placeholder="Question 2" name="Question_2" formControlName="Question_2" required minlength="5" maxlength="100">
             </div>
             <div *ngIf="formdata.get('Question_2').hasError('required') && myform.submitted" class='alert-danger'>Question is required</div>
+            <div *ngIf="formdata.get('Question_2').hasError('minlength') && myform.submitted" class='alert-danger'>Length should be atleast 5</div>
             
              <div class="form-group"  style="padding-top: 1%;">
               <label for="Question_3TextField">Question 3</label>
-              <input type="text" class="form-control" id="GenreTextField"
-              placeholder="Question 3" name="Question_3" formControlName="Question_3" required>
+              <input type="text" class="form-control" minlength="5" id="GenreTextField"
+              placeholder="Question 3" name="Question_3" formControlName="Question_3" required minlength="5" maxlength="100">
             </div>
             <div *ngIf="formdata.get('Question_3').hasError('required') && myform.submitted" class='alert-danger'>Question is required</div>
-                      
+            <div *ngIf="formdata.get('Question_3').hasError('minlength') && myform.submitted" class='alert-danger'>Length should be atleast 5</div>
+            
             <div style="padding-top: 3%;">
               <a href="/home">
               <button type="submit" class="forsubmit btn btn-primary" >Submit</button></a>

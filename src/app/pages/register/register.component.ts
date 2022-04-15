@@ -16,7 +16,8 @@ export class RegisterComponent implements OnInit {
   formdata: any = {}
   registered = false;
   regSent = false;
-
+  message:String ="";
+  isCreated:Boolean = true;
   constructor(public repository:UserRepository,
               public user:User,
               private auth: AuthService,
@@ -36,10 +37,17 @@ export class RegisterComponent implements OnInit {
       this.repository.saveUser(this.user).subscribe(user =>{
         this.regSent = true;
         this.registered = false;
+        this.message =user.message;
 
-        this.authenicateUser();
+        if(user.success)
+        {
+          this.authenicateUser();
+        }
+        else{
+          this.isCreated=false;
+        //alert(user.message);
+        }
 
-      
       });
     }   
   }
@@ -51,7 +59,12 @@ export class RegisterComponent implements OnInit {
       {
         GlobalComponent.displayName = data.user.displayName;
         this.auth.storeUserData(data.token, data.user);
+        
+        if(this.isCreated)
+        {
         this.router.navigate(['/home']);
+        }
+        
         
       }
     });

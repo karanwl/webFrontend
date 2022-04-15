@@ -17,7 +17,7 @@ export class UserRepository
         return this.users;
     }
 
-    saveUser(user: User): Observable<User>
+    saveUser(user: User): Observable<any>
     {
         return this.dataSource.saveUser(user);
     }

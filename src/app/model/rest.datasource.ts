@@ -60,7 +60,7 @@ export class RestDataSource {
     return this.http.get<any>(this.baseUrl + 'user');
   }
 
-  saveUser(user: User): Observable<User>
+  saveUser(user: User): Observable<any>
   {
     this.authenticate(user);
     return this.http.post<User>(this.baseUrl + 'users/signup', user, this.httpOptions)

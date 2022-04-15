@@ -3,7 +3,7 @@
     <div class="col-md-offset-1 col-md-12 ">
       <h3 style="padding-top: 6px;">Active Surveys </h3>
       <div class="comp_table">
-        <table  class=" table table-bordered table-striped table-hover">
+        <table  class=" table table-bordered  table-hover">
           <thead>
             <tr>
               <th>Title</th>
@@ -12,7 +12,7 @@
               <th class="text-center"></th>
             </tr>
           </thead>
-          <tbody *ngIf='isLoggedIn()'>
+          <tbody *ngIf='isLoggedIn()' class="table_background">
               <tr *ngFor="let survey of surveys">
                   <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined'>{{survey.Title}}</td>
                   <td *ngIf='isLoggedIn() && survey.User!==displayName && survey.Answer_1==undefined' class="text-center">{{survey.Date}}</td>
@@ -45,7 +45,7 @@
               <th class="text-center">Description</th> 
             </tr>
           </thead>
-          <tbody>
+          <tbody class="table_background">
               <tr *ngFor="let survey of surveys">
                   <td *ngIf='isLoggedIn() && survey.User===displayName && survey.Answer_1!==undefined'>{{survey.Title}}</td>
                   <td *ngIf='isLoggedIn() && survey.User==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>

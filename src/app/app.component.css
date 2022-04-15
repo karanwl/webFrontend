@@ -1,3 +1,7 @@
 .container {
     overflow: auto;
 }
+
+.table_background{
+    background: ghostwhite;
+}

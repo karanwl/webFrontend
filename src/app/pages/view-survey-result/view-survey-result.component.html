@@ -20,7 +20,7 @@
                     <th class="text-center">Answer</th>    
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="table_background">
               <tr *ngFor="let survey of surveys">
                 <td *ngIf='isLoggedIn() && title===survey.Title && survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Title}}</td>
                 <td *ngIf='isLoggedIn() && title===survey.Title &&survey.User!==displayName && survey.Answer_1!==undefined' class="text-center">{{survey.Date}}</td>

@@ -30,7 +30,7 @@ export class RestDataSource {
               private jwtService: JwtHelperService) 
   {
     this.user = new User();
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = "https://webappfinalbackend.herokuapp.com/";
   }
 
   getSurveys(): Observable<Surveys[]> 

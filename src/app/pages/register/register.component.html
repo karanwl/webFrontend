@@ -4,12 +4,10 @@
 <main *ngIf="!regSent" class="container">
     <div class="row" style="padding-top: 7%;padding-left: 10%;"> 
         <div class="offset-md-2 col-md-7" style="border:1px solid black;padding-bottom: 3%;padding-top: 1%;">
+            <span class="userValid"></span>
             <form *ngIf="!regSent" #form='ngForm' novalidate
             (ngSubmit)='regSubmit(form)' class="m-2">
             <div class="offset-md-1 col-md-9">
-                <span *ngIf = '!isCreated' class='alert-danger'>
-                    {{message}}
-                </span>
 
                 <h1>Register New User</h1>
                 <div class="form-group">

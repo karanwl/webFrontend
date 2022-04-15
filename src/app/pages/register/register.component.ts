@@ -45,10 +45,15 @@ export class RegisterComponent implements OnInit {
         }
         else{
           this.isCreated=false;
-        //alert(user.message);
+          alert(user.message);
+          $(".userValid").text(user.message);
+          window.location.href ='/register';
+         
         }
 
       });
+
+     
     }   
   }
 
@@ -64,8 +69,6 @@ export class RegisterComponent implements OnInit {
         {
         this.router.navigate(['/home']);
         }
-        
-        
       }
     });
   }

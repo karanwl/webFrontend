@@ -10,3 +10,11 @@
 .table_background{
     background: ghostwhite;
 }
+
+input[type="text"], textarea {
+    background-color : ghostwhite; 
+}
+  
+
+
+

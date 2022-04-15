@@ -36,18 +36,24 @@ export class RegisterComponent implements OnInit {
       this.repository.saveUser(this.user).subscribe(user =>{
         this.regSent = true;
         this.registered = false;
+
+        this.authenicateUser();
+
       
-      });
-      // perform authentication
-      this.auth.authenticate(this.user).subscribe(data => {
-        if (data.success)
-        {
-          GlobalComponent.displayName = data.user.displayName;
-          this.auth.storeUserData(data.token, data.user);
-          
-        }
       });
     }   
   }
 
+  authenicateUser():void{
+     // perform authentication
+     this.auth.authenticate(this.user).subscribe(data => {
+      if (data.success)
+      {
+        GlobalComponent.displayName = data.user.displayName;
+        this.auth.storeUserData(data.token, data.user);
+        this.router.navigate(['/home']);
+        
+      }
+    });
+  }
 }

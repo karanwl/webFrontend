@@ -80,7 +80,8 @@ export class EditComponent implements OnInit {
     this.Title = data.Title;
    
     this.repository.postSurveysUpdate(this._id,data);
-    this.router.navigateByUrl('/home');
+   // this.router.navigateByUrl('/home');
+     window.location.href = '/home';
     
   }
 
